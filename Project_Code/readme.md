@@ -22,8 +22,8 @@ WITH (MAX_MEMORY=4096 KB,EVENT_RETENTION_MODE=ALLOW_SINGLE_EVENT_LOSS,MAX_DISPAT
 </pre>
 
 <h3>Install the SQL Agent job to cycle the XE Session</h3>
-In SSMS on your Remote Servers, execute this SQL to create the Agent Job:<br>
- * Server Trace - XE Login Session Restart - 000000.sql
+In SSMS on your Remote Servers, execute this SQL to create the Agent Job
+* Server Trace - XE Login Session Restart - 000000.sql
 
 <h3>Edit the Agent Job - Server Trace - XE Login Session Restart - 000000</h3>
 You need to edit all 7 lines in Step 1 that have the '''SET filename=''' sections to point to the XEL folder of your choice<br>
@@ -69,8 +69,8 @@ IF DATEPART(WEEKDAY,GETDATE())=7
 
 <h2>On the Central Database Server</h2>
 <h3>Edit the XEL File Copy Powershell Scripts</h3>
- * Domain_Server_Trace_file_mover.ps1
- * DMZ_Server_Trace_file_mover.ps1
+* Domain_Server_Trace_file_mover.ps1
+* DMZ_Server_Trace_file_mover.ps1
 
 Edit the $SourceFolder variable to point to the same filepath above on the remote server, but using UNC syntax:
 <pre>
