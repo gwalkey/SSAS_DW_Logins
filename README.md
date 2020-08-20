@@ -24,6 +24,8 @@ Using the XEvent.Linq.dll and XECore.sll assemblies, we can load over 1M events 
 ![alt text](https://raw.githubusercontent.com/gwalkey/SSAS_DW_Logins/master/Import_Library_Comparison.jpg)
 
 # Inspiration by
-* Romans Chapter 8
-* Rachmaninoff, Lizst, Saint-Sens
+* Romans Chapter 8 - https://classic.biblegateway.com/passage/?search=romans+8&version=AMPC
+* Rachmaninoff - https://www.youtube.com/watch?v=vpaPWuDQUcc&t=98s
+* Lizst - https://www.youtube.com/watch?v=salrwSVWpC4&t=51s
+* Saint-Saens- https://www.youtube.com/watch?v=eH-R6wl-dMU&t=15s
 * Late Night Alumni - https://www.youtube.com/playlist?list=PLtZ9dBSEHSuCxOJ_oUypS1EvhX0MwCQf5
