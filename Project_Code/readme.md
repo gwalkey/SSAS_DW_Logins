@@ -11,7 +11,7 @@ will also need to be updated to use the same filepath, but using a UNC syntax in
 \\server1\d$\traces\
 </pre>
 
-In the XE Session below, edit the '''SET filename=''' section:
+In the XE Session below, edit the '''SET filename=''' section to point to your filepath:
 <pre>
 CREATE EVENT SESSION [Logins] ON SERVER 
 ADD EVENT sqlserver.login(SET collect_database_name=(1)
