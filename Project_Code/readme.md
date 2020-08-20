@@ -1,5 +1,6 @@
 <h1>Setup Instructions<h1>
 <h2>On Each Monitored Server</h2>
+<h3>Setup the Extended Events Session<h3>
 Install the XE Session below on each server you wish to monitor<br>
 Make sure to the edit the file path for the target output XEL file<br>
 
@@ -25,3 +26,20 @@ ON SERVER
 STATE = START;
 GO
 </pre>
+
+<h2>On the Central Database Server<h2>
+<h3>Edit the XEL File Copy Powershell Script<h3>
+
+Edit the section here to her to the same filepath above, but in a UNC syntax:
+<pre>
+# Get Day of Week for Yesterday
+[string]$Day = ((get-date).AddDays(-1)).DayOfWeek
+
+$SourceFolder='\\server1\d$\traces\'
+$FileSpec = $SourceFolder+'XE_Logins_'+$Day+'*.xel'
+Write-Output('{0}' -f $Filespec)
+
+# XEL Files
+Move-Item -Path $FileSpec -Destination d:\traces\domain_server1  -Force -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
+</pre>
+
