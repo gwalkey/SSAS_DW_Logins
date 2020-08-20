@@ -1,5 +1,5 @@
 # 
-SSAS_DW_Logins is a set of MS technologies combined as a SQL Server Security/Auditing Tool:
+SSAS_DW_Logins is a set of MS technologies combined as a SQL Server Security/Auditing Tool:<br>
 It is a SSAS Tabular Data warehouse with an Excel Front end to track and analyze SQL Server Logins.
 
 # Components:
