@@ -1,0 +1,4 @@
+This Excel has an embedded SSAS Tabular Data Source connection to
+localhost\tabluar
+
+You can Easily edit that Connection
