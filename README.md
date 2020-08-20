@@ -16,7 +16,7 @@ This solution allows you to answer questions like
 * What Appllications did they use
 * What Databases did they access
 * Show me all hosts that access this database
-* Why is that app logging in 20,000 per hour?
+* Why is that app logging in 20,000 times per hour?
 
 # Performance
 Using the XEvent.Linq.dll and XECore.sll assemblies, we can load over 1M events per minute
