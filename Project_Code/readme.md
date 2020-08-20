@@ -22,7 +22,7 @@ WITH (MAX_MEMORY=4096 KB,EVENT_RETENTION_MODE=ALLOW_SINGLE_EVENT_LOSS,MAX_DISPAT
 </pre>
 
 <h3>Install the SQL Agent job to cycle the XE Session</h3>
-In SSMS on your Remote Servers, execute this SQL to create the Agent Job
+In SSMS on your Remote Servers, execute this SQL to create the Agent Job<br>
 * Server Trace - XE Login Session Restart - 000000.sql
 
 <h3>Edit the Agent Job - Server Trace - XE Login Session Restart - 000000</h3>
@@ -69,8 +69,8 @@ IF DATEPART(WEEKDAY,GETDATE())=7
 
 <h2>On the Central Database Server</h2>
 <h3>Edit the XEL File Copy Powershell Scripts</h3>
-* Domain_Server_Trace_file_mover.ps1
-* DMZ_Server_Trace_file_mover.ps1
+* Domain_Server_Trace_file_mover.ps1<br>
+* DMZ_Server_Trace_file_mover.ps1<br>
 
 Edit the $SourceFolder variable to point to the same filepath above on the remote server, but using UNC syntax:
 <pre>
@@ -87,32 +87,32 @@ Move-Item -Path $FileSpec -Destination d:\traces\domain_server1  -Force -ErrorAc
 
 <h3>Create the OLTP Database</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
- * 01 - Create Inbound Database.sql
- * 02 - Create Inbound DB Tables.sql
+ * 01 - Create Inbound Database.sql<br>
+ * 02 - Create Inbound DB Tables.sql<br>
 
 <h3>Create the OLAP Database</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
- * 01 - Create OLAP Database.sql
- * 02 - Create Date Dimension.sql
- * 03 - Create Other Dimension Tables.sql
- * 04 - Create Fact Table.sql
+ * 01 - Create OLAP Database.sql<br>
+ * 02 - Create Date Dimension.sql<br>
+ * 03 - Create Other Dimension Tables.sql<br>
+ * 04 - Create Fact Table.sql<br>
 
 <h3>Install the Powershell Scripts</h3>
 Copy the Powershell script to a folder on your central server<br>
 C:\PSScripts is the default<br>
- * Delete_all_xel_files.ps1
- * DMZ_Server_Trace_file_mover.ps1
- * Domain_Server_Trace_file_mover.ps1
- * XEvents_Loader.ps1
+ * Delete_all_xel_files.ps1<br>
+ * DMZ_Server_Trace_file_mover.ps1<br>
+ * Domain_Server_Trace_file_mover.ps1<br>
+ * XEvents_Loader.ps1<br>
 
 <h3>Install the SQL Agent Jobs</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
- * Server Trace - Step 1 - Truncate Work Tables - Daily - 0001.sql
- * Server Trace - Step 2 - Copy Trace Files up from Source Servers.sql
- * Server Trace - Step 3 - Import XE Trace Files.sql
- * Server Trace - Step 4 - Clean XE Data.sql
- * Server Trace - Step 5 - Populate and Process SSAS MD Cube.sql
- * Server Trace - Step 6 - Backup Server SSAS Databases.sql
+ * Server Trace - Step 1 - Truncate Work Tables - Daily - 0001.sql<br>
+ * Server Trace - Step 2 - Copy Trace Files up from Source Servers.sql<br>
+ * Server Trace - Step 3 - Import XE Trace Files.sql<br>
+ * Server Trace - Step 4 - Clean XE Data.sql<br>
+ * Server Trace - Step 5 - Populate and Process SSAS MD Cube.sql<br>
+ * Server Trace - Step 6 - Backup Server SSAS Databases.sql<br>
 
 <h3>Edit the SQL Agent Jobs<h3>
 Finally, we need to edit the ETL agent jobs to suit our environment:<br>
