@@ -26,4 +26,4 @@ Using the XEvent.Linq.dll and XECore.sll assemblies, we can load over 1M events 
 # Inspiration by
 * Romans Chapter 8
 * Rachmaninoff, Lizst, Saint-Sens
-* Late Night Alumni
+* Late Night Alumni - https://www.youtube.com/playlist?list=PLtZ9dBSEHSuCxOJ_oUypS1EvhX0MwCQf5
