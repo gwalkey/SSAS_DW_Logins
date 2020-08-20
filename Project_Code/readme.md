@@ -2,13 +2,14 @@
 <h2>On Each Monitored Server</h2>
 <h3>Setup the Extended Events Session</h3>
 Install the XE Session below on each server you wish to monitor<br>
-Make sure to the edit the file path for the target output XEL file<br>
+Make sure to the edit the file path for the target output XEL file to a folder og your choosing<br>
 
-When the server lays down the XEL file every day, the file-copy PoSH script that runs on the Central Server to copy the XEL files<br>
-from the monitored servers to the Central server for importing, therefore we must edit that Posh Script to use the same filepath, <br>
-but with a UNC syntax instead such as:<br>
+When the server lays down the XEL file every day, the file-copy PoSH script that runs on the Central Server copies the XEL files<br>
+from all the monitored servers to the Central server location for importing into the SQL and Tabular databases.<br> 
+Therefore, we must edit that Posh Script to point the same folder on the remote server, but with a UNC path syntax instead such as:<br>
 <pre>
-\\server1\d$\traces\
+On Remote Server1: d:\traces
+on Central Server: \\server1\d$\traces\
 </pre>
 
 In the XE Session below, edit the **SET filename=** section to point to your filepath:
@@ -70,23 +71,23 @@ IF DATEPART(WEEKDAY,GETDATE())=7
 <h2>On the Central Database Server</h2>
 <h3>Create the OLTP Database</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
- * 01 - Create Inbound Database.sql<br>
- * 02 - Create Inbound DB Tables.sql<br>
+* 01 - Create Inbound Database.sql<br>
+* 02 - Create Inbound DB Tables.sql<br>
 
 <h3>Create the OLAP Database</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
- * 01 - Create OLAP Database.sql<br>
- * 02 - Create Date Dimension.sql<br>
- * 03 - Create Other Dimension Tables.sql<br>
- * 04 - Create Fact Table.sql<br>
+* 01 - Create OLAP Database.sql<br>
+* 02 - Create Date Dimension.sql<br>
+* 03 - Create Other Dimension Tables.sql<br>
+* 04 - Create Fact Table.sql<br>
 
 <h3>Install the Powershell Scripts</h3>
 Copy the Powershell script to a folder on your central server<br>
 **C:\PSScripts\trace_file_movers** is the default<br>
- * Delete_all_xel_files.ps1<br>
- * DMZ_Server_Trace_file_mover.ps1<br>
- * Domain_Server_Trace_file_mover.ps1<br>
- * XEvents_Loader.ps1<br>
+* Delete_all_xel_files.ps1<br>
+* DMZ_Server_Trace_file_mover.ps1<br>
+* Domain_Server_Trace_file_mover.ps1<br>
+* XEvents_Loader.ps1<br>
 
 <h3>Edit the XEL File Copy Powershell Scripts</h3>
 * Domain_Server_Trace_file_mover.ps1<br>
@@ -107,11 +108,11 @@ Move-Item -Path $FileSpec -Destination d:\traces\domain_server1  -Force -ErrorAc
 
 <h3>Install the SQL Agent Jobs</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
- * Server Trace - Step 1 - Truncate Work Tables - Daily - 0001.sql<br>
- * Server Trace - Step 2 - Copy Trace Files up from Source Servers.sql<br>
- * Server Trace - Step 3 - Import XE Trace Files.sql<br>
- * Server Trace - Step 4 - Clean XE Data.sql<br>
- * Server Trace - Step 5 - Populate and Process SSAS MD Cube.sql<br>
+* Server Trace - Step 1 - Truncate Work Tables - Daily - 0001.sql<br>
+* Server Trace - Step 2 - Copy Trace Files up from Source Servers.sql<br>
+* Server Trace - Step 3 - Import XE Trace Files.sql<br>
+* Server Trace - Step 4 - Clean XE Data.sql<br>
+* Server Trace - Step 5 - Populate and Process SSAS MD Cube.sql<br>
 
 <h3>Edit the SQL Agent Jobs</h3>
 Finally, we need to edit the ETL agent jobs to suit our environment:<br>
