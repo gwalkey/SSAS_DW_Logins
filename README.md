@@ -19,8 +19,10 @@ This solution allows you to answer questions like
 * Why is that app logging in 20,000 times per hour?
 
 # ETL Performance
-Using the XEvent.Linq.dll and XECore.sll assemblies, we can load over 1M events per minute
+* sys.fn_xe_file_target_read_file = 11 Hours
+* XEvent.Linq.dll and XECore.dll assemblies - 11 Minutes
 
+Using the XEvent.Linq.dll and XECore.dll assemblies, we can load over 1M events per minute
 ![alt text](https://raw.githubusercontent.com/gwalkey/SSAS_DW_Logins/master/Import_Library_Comparison.jpg)
 
 # Inspiration by
