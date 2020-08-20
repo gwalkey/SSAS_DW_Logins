@@ -112,20 +112,19 @@ In SSMS on your Central Server, execute these SQL scripts:<br>
  * Server Trace - Step 3 - Import XE Trace Files.sql<br>
  * Server Trace - Step 4 - Clean XE Data.sql<br>
  * Server Trace - Step 5 - Populate and Process SSAS MD Cube.sql<br>
- * Server Trace - Step 6 - Backup Server SSAS Databases.sql<br>
 
 <h3>Edit the SQL Agent Jobs</h3>
 Finally, we need to edit the ETL agent jobs to suit our environment:<br>
-* Edit Job 3 (Server Trace - Step 3 - Import XE Trace Files.sq) and create a Step for each Remote Server's XEL Files you plan to import
+* Edit Job 3 (Server Trace - Step 3 - Import XE Trace Files.sq) and create a Step for each Remote Server's XEL Files you plan to import<br>
 Change the '''Owner-PC''' powershell Script parameter to point to the sub folder in D:\traces\server1<br>
-that hold the XEL files for that server:
-A Mutli-server setup will have this XEL file structure on your Central Server:
+that hold the XEL files for that server:<br>
+A Mutli-server setup will have this XEL file structure on your Central Server:<br>
 D:\traces\server1<br>
 D:\traces\server2<br>
 D:\traces\server3<br>
 D:\traces\server4<br>
 
-In this case, the new Job 3 (Server Trace - Step 3 - Import XE Trace Files.sq) Steps would be
+In this case, the new Job 3 (Server Trace - Step 3 - Import XE Trace Files.sq) Steps would be<br>
 <pre>
 powershell.exe c:\psscripts\xe\XEvents_Loader.ps1 Server1
 </pre>
