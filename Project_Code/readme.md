@@ -1,3 +1,4 @@
+<h1>Setup Instructions<h1>
 <h2>On Each Monitored Server</h2>
 Install the XE Session below on each server you wish to monitor<br>
 Make sure to the edit the file path for the target output XEL file<br>
