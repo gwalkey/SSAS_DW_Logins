@@ -26,7 +26,7 @@ WITH (MAX_MEMORY=4096 KB,EVENT_RETENTION_MODE=ALLOW_SINGLE_EVENT_LOSS,MAX_DISPAT
 In SSMS on your Remote Servers, execute this SQL to create the Agent Job<br>
 * Server Trace - XE Login Session Restart - 000000.sql
 
-<h3>Edit the Agent Job - Server Trace - XE Login Session Restart - 000000</h3>
+<h3>Edit the Agent Job </h3>
 You need to edit all 7 lines in Step 1 that have the **SET filename=** sections to point to the XEL folder of your choice<br>
 The XE Session is closed and reset every night at Midnight by dropping and recreating the target output XEL file:
 <pre>
