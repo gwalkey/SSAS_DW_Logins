@@ -29,3 +29,6 @@ Using the XEvent.Linq.dll and XECore.sll assemblies, we can load over 1M events 
 * Lizst - https://www.youtube.com/watch?v=salrwSVWpC4&t=51s
 * Saint-Saens- https://www.youtube.com/watch?v=eH-R6wl-dMU&t=15s
 * Late Night Alumni - https://www.youtube.com/playlist?list=PLtZ9dBSEHSuCxOJ_oUypS1EvhX0MwCQf5
+
+# Sample Report
+![alt text](https://raw.githubusercontent.com/gwalkey/SSAS_DW_Logins/master/DW_Logins_Excel_Model.jpg)
