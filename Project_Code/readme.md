@@ -43,3 +43,26 @@ Write-Output('{0}' -f $Filespec)
 Move-Item -Path $FileSpec -Destination d:\traces\domain_server1  -Force -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
 </pre>
 
+<h3>Create the OLTP Database</h3>
+In SSMS on your Central Server, execute these SQL scripts:<br>
+*01 - Create Inbound Database.sql
+*02 - Create Inbound DB Tables.sql
+
+<h3>Create the OLAP Database</h3>
+In SSMS on your Central Server, execute these SQL scripts:<br>
+*01 - Create OLAP Database.sql
+*02 - Create Date Dimension.sql
+*03 - Create Other Dimension Tables.sql
+*04 - Create Fact Table.sql
+
+<h3>Install the Powershell Scripts</h3>
+Copy the Powershell script to a folder on your central server<br>
+C:\PSScripts is the default<br>
+*Delete_all_xel_files.ps1
+*DMZ_Server_Trace_file_mover.ps1
+*Domain_Server_Trace_file_mover.ps1
+*XEvents_Loader.ps1
+
+<h3>Install the SQL Agent Jobs</h3>
+In SSMS on your Central Server, execute these SQL scripts:<br>
+*Server Trace - Step 1 - Truncate Work Tables - Daily - 0001.sql
