@@ -7,7 +7,7 @@ When the server lays down the XEL file every day, the file-copy PoSH script that
 https://github.com/gwalkey/SSAS_DW_Logins/blob/master/Project_Code/1_On_Central_Server/03_Powershell_Files/Domain_Server_Trace_file_mover.ps1
 will also need to be updated to use the same filepath, but using a UNC syntax instead such as:<br>
 <pre>
-\\server1\d$\traces\ <br>
+\\server1\d$\traces\
 </pre>
 
 In the XE Session below, edit the '''SET filename=''' section:
