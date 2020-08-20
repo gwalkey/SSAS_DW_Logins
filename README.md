@@ -21,7 +21,7 @@ This solution allows you to answer questions like
 # Performance
 Using the XEvent.Linq.dll and XECore.sll assemblies, we can load over 1M events per minute
 
-![alt text](https://raw.githubusercontent.com/gwalkey/SSAS_DW_Logins/master/Import Library Comparison.jpg)
+![alt text](https://raw.githubusercontent.com/gwalkey/SSAS_DW_Logins/master/Import_Library_Comparison.jpg)
 
 # Inspiration by
 * Romans Chapter 8
