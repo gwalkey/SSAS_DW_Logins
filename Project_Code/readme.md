@@ -11,7 +11,7 @@ will also need to be updated to use the same filepath, but using a UNC syntax in
 \\server1\d$\traces\
 </pre>
 
-In the XE Session below, edit the '''SET filename=''' section to point to your filepath:
+In the XE Session below, edit the **SET filename=** section to point to your filepath:
 <pre>
 CREATE EVENT SESSION [Logins] ON SERVER 
 ADD EVENT sqlserver.login(SET collect_database_name=(1)
@@ -26,7 +26,7 @@ In SSMS on your Remote Servers, execute this SQL to create the Agent Job<br>
 * Server Trace - XE Login Session Restart - 000000.sql
 
 <h3>Edit the Agent Job - Server Trace - XE Login Session Restart - 000000</h3>
-You need to edit all 7 lines in Step 1 that have the '''SET filename=''' sections to point to the XEL folder of your choice<br>
+You need to edit all 7 lines in Step 1 that have the **SET filename=** sections to point to the XEL folder of your choice<br>
 The XE Session is closed and reset every night at Midnight by dropping and recreating the target output XEL file:
 <pre>
 --- Daily Restart Action
@@ -82,7 +82,7 @@ In SSMS on your Central Server, execute these SQL scripts:<br>
 
 <h3>Install the Powershell Scripts</h3>
 Copy the Powershell script to a folder on your central server<br>
-C:\PSScripts\trace_file_movers is the default<br>
+**C:\PSScripts\trace_file_movers** is the default<br>
  * Delete_all_xel_files.ps1<br>
  * DMZ_Server_Trace_file_mover.ps1<br>
  * Domain_Server_Trace_file_mover.ps1<br>
@@ -116,7 +116,7 @@ In SSMS on your Central Server, execute these SQL scripts:<br>
 <h3>Edit the SQL Agent Jobs</h3>
 Finally, we need to edit the ETL agent jobs to suit our environment:<br>
 * Edit Job 3 (Server Trace - Step 3 - Import XE Trace Files.sq) and create a Step for each Remote Server's XEL Files you plan to import<br>
-Change the '''Owner-PC''' powershell Script parameter to point to the sub folder in D:\traces\server1<br>
+Change the **Owner-PC** powershell Script parameter to point to the sub folder in D:\traces\server1<br>
 that hold the XEL files for that server:<br>
 A Mutli-server setup will have this XEL file structure on your Central Server:<br>
 D:\traces\server1<br>
