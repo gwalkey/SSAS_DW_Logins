@@ -68,23 +68,6 @@ IF DATEPART(WEEKDAY,GETDATE())=7
 
 
 <h2>On the Central Database Server</h2>
-<h3>Edit the XEL File Copy Powershell Scripts</h3>
-* Domain_Server_Trace_file_mover.ps1<br>
-* DMZ_Server_Trace_file_mover.ps1<br>
-
-Edit the $SourceFolder variable to point to the same filepath above on the remote server, but using UNC syntax:
-<pre>
-# Get Day of Week for Yesterday
-[string]$Day = ((get-date).AddDays(-1)).DayOfWeek
-
-$SourceFolder='\\server1\d$\traces\'
-$FileSpec = $SourceFolder+'XE_Logins_'+$Day+'*.xel'
-Write-Output('{0}' -f $Filespec)
-
-# XEL Files
-Move-Item -Path $FileSpec -Destination d:\traces\domain_server1  -Force -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
-</pre>
-
 <h3>Create the OLTP Database</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
  * 01 - Create Inbound Database.sql<br>
@@ -104,6 +87,23 @@ C:\PSScripts\trace_file_movers is the default<br>
  * DMZ_Server_Trace_file_mover.ps1<br>
  * Domain_Server_Trace_file_mover.ps1<br>
  * XEvents_Loader.ps1<br>
+
+<h3>Edit the XEL File Copy Powershell Scripts</h3>
+* Domain_Server_Trace_file_mover.ps1<br>
+* DMZ_Server_Trace_file_mover.ps1<br>
+
+Edit the $SourceFolder variable to point to the same filepath above for each remote server, but using UNC syntax:
+<pre>
+# Get Day of Week for Yesterday
+[string]$Day = ((get-date).AddDays(-1)).DayOfWeek
+
+$SourceFolder='\\server1\d$\traces\'
+$FileSpec = $SourceFolder+'XE_Logins_'+$Day+'*.xel'
+Write-Output('{0}' -f $Filespec)
+
+# XEL Files
+Move-Item -Path $FileSpec -Destination d:\traces\domain_server1  -Force -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
+</pre>
 
 <h3>Install the SQL Agent Jobs</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
