@@ -116,4 +116,16 @@ In SSMS on your Central Server, execute these SQL scripts:<br>
 
 <h3>Edit the SQL Agent Jobs</h3>
 Finally, we need to edit the ETL agent jobs to suit our environment:<br>
+* Edit Job 3 () and create a Step for each Remote Server's XEL Files you plan to import
+Change the '''Owner-PC''' powershell Script parameter to point to the sub folder in D:\traces\server1<br>
+that hold the XEL files for that server:
+A Mutli-server setup will have this XEL file structure on your Central Server:
+D:\traces\server1<br>
+D:\traces\server2<br>
+D:\traces\server3<br>
+D:\traces\server4<br>
 
+In this case, the new Job 3 () Steps would be
+<pre>
+powershell.exe c:\psscripts\xe\XEvents_Loader.ps1 Server1
+</pre>
