@@ -30,7 +30,7 @@ GO
 <h2>On the Central Database Server</h2>
 <h3>Edit the XEL File Copy Powershell Script</h3>
 
-Edit the section here to her to the same filepath above, but in a UNC syntax:
+Edit the section here to point to the same filepath above, but in a UNC syntax:
 <pre>
 # Get Day of Week for Yesterday
 [string]$Day = ((get-date).AddDays(-1)).DayOfWeek
