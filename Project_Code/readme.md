@@ -114,6 +114,6 @@ In SSMS on your Central Server, execute these SQL scripts:<br>
  * Server Trace - Step 5 - Populate and Process SSAS MD Cube.sql<br>
  * Server Trace - Step 6 - Backup Server SSAS Databases.sql<br>
 
-<h3>Edit the SQL Agent Jobs<h3>
+<h3>Edit the SQL Agent Jobs</h3>
 Finally, we need to edit the ETL agent jobs to suit our environment:<br>
 
