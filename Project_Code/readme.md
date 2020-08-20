@@ -1,6 +1,6 @@
 <h1>Setup Instructions<h1>
 <h2>On Each Monitored Server</h2>
-<h3>Setup the Extended Events Session<h3>
+<h3>Setup the Extended Events Session</h3>
 Install the XE Session below on each server you wish to monitor<br>
 Make sure to the edit the file path for the target output XEL file<br>
 
@@ -27,8 +27,8 @@ STATE = START;
 GO
 </pre>
 
-<h2>On the Central Database Server<h2>
-<h3>Edit the XEL File Copy Powershell Script<h3>
+<h2>On the Central Database Server</h2>
+<h3>Edit the XEL File Copy Powershell Script</h3>
 
 Edit the section here to her to the same filepath above, but in a UNC syntax:
 <pre>
