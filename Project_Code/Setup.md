@@ -6,7 +6,7 @@ need to be updated to use the same path but using a UNC syntax:
 
 In the XE Session below, edit the SET filename= section:
 
-`
+<pre>
 CREATE EVENT SESSION [Logins] ON SERVER 
 ADD EVENT sqlserver.login(SET collect_database_name=(1)
     ACTION(package0.collect_system_time,sqlserver.client_app_name,sqlserver.client_hostname,sqlserver.database_id,sqlserver.database_name,sqlserver.nt_username,sqlserver.server_instance_name,sqlserver.session_nt_username,sqlserver.username)
@@ -19,4 +19,4 @@ ALTER EVENT SESSION [Logins]
 ON SERVER 
 STATE = START;
 GO
-`
+</pre>
