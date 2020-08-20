@@ -19,16 +19,55 @@ ADD EVENT sqlserver.login(SET collect_database_name=(1)
     WHERE ([sqlserver].[not_equal_i_sql_unicode_string]([sqlserver].[client_app_name],N'Microsoft SQL Server Management Studio - Transact-SQL IntelliSense') AND NOT [sqlserver].[like_i_sql_unicode_string]([sqlserver].[client_app_name],N'SQLAgent%')))
 ADD TARGET package0.event_file(SET filename=N'D:\Traces\XE_Logins_Dummy.xel',max_file_size=(100),max_rollover_files=(100))
 WITH (MAX_MEMORY=4096 KB,EVENT_RETENTION_MODE=ALLOW_SINGLE_EVENT_LOSS,MAX_DISPATCH_LATENCY=30 SECONDS,MAX_EVENT_SIZE=0 KB,MEMORY_PARTITION_MODE=NONE,TRACK_CAUSALITY=OFF,STARTUP_STATE=ON)
-GO
-
-ALTER EVENT SESSION [Logins]
-ON SERVER 
-STATE = START;
-GO
 </pre>
 
+<h3>Install the SQL Agent job to cycle the XE Session</h3>
+In SSMS on your Remote Servers, execute this SQL to create the Agent Job:<br>
+* Server Trace - XE Login Session Restart - 000000.sql
+
+You need to edit all 7 lines that have the '''SET filename=''' sections which point to the XEL folder of your choice<br>
+The XE Session is closed and reset every night at Midnight by dropping and recreating the target output XEL file:
+<pre>
+--- Daily Restart Action
+
+--- Drop Yesterdays target
+ALTER EVENT SESSION [Logins] ON SERVER 
+DROP TARGET package0.event_file
+GO
+
+--- Rename output files based on DOW
+IF DATEPART(WEEKDAY,GETDATE())=1
+	ALTER EVENT SESSION [Logins] ON SERVER 
+	ADD TARGET package0.event_file(SET filename=N''D:\Traces\OWNER-Pc\XE_Logins_Sunday.xel'',max_file_size=100, max_rollover_files = 100)
+
+IF DATEPART(WEEKDAY,GETDATE())=2
+	ALTER EVENT SESSION [Logins] ON SERVER 
+	ADD TARGET package0.event_file(SET filename=N''D:\Traces\OWNER-PC\XE_Logins_Monday.xel'',max_file_size=100, max_rollover_files = 100)
+
+IF DATEPART(WEEKDAY,GETDATE())=3
+	ALTER EVENT SESSION [Logins] ON SERVER 
+	ADD TARGET package0.event_file(SET filename=N''D:\Traces\OWNER-PC\XE_Logins_Tuesday.xel'',max_file_size=100, max_rollover_files = 100)
+
+IF DATEPART(WEEKDAY,GETDATE())=4
+	ALTER EVENT SESSION [Logins] ON SERVER 
+	ADD TARGET package0.event_file(SET filename=N''D:\Traces\OWNER-PC\XE_Logins_Wednesday.xel'',max_file_size=100, max_rollover_files = 100)
+
+IF DATEPART(WEEKDAY,GETDATE())=5
+	ALTER EVENT SESSION [Logins] ON SERVER 
+	ADD TARGET package0.event_file(SET filename=N''D:\Traces\OWNER-PC\XE_Logins_Thursday.xel'',max_file_size=100, max_rollover_files = 100)
+
+IF DATEPART(WEEKDAY,GETDATE())=6
+	ALTER EVENT SESSION [Logins] ON SERVER 
+	ADD TARGET package0.event_file(SET filename=N''D:\Traces\OWNER-PC\XE_Logins_Friday.xel'',max_file_size=100, max_rollover_files = 100)
+
+IF DATEPART(WEEKDAY,GETDATE())=7
+	ALTER EVENT SESSION [Logins] ON SERVER 
+	AD
+</pre>
+
+
 <h2>On the Central Database Server</h2>
-<h3>Edit the XEL File Copy Powershell Script</h3>
+<h3>Edit the XEL File Copy Powershell Scripts</h3>
 * Domain_Server_Trace_file_mover.ps1
 * DMZ_Server_Trace_file_mover.ps1
 
