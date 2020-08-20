@@ -99,7 +99,7 @@ In SSMS on your Central Server, execute these SQL scripts:<br>
 
 <h3>Install the Powershell Scripts</h3>
 Copy the Powershell script to a folder on your central server<br>
-C:\PSScripts is the default<br>
+C:\PSScripts\trace_file_movers is the default<br>
  * Delete_all_xel_files.ps1<br>
  * DMZ_Server_Trace_file_mover.ps1<br>
  * Domain_Server_Trace_file_mover.ps1<br>
