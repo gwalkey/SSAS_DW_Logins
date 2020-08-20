@@ -10,7 +10,7 @@ It is a SSAS Tabular Data warehouse with an Excel Front end to track and analyze
 5) An Excel Pivot Table to view the historical Logins
 
 # Benefits
-This solution allows you to answer question like
+This solution allows you to answer questions like
 * Who logged in at this hour
 * From what Hosts
 * What Appllications did they use
@@ -20,3 +20,8 @@ This solution allows you to answer question like
 
 # Performance
 Using the XEvent.Linq.dll and XECore.sll assemblies, we can load over 1M events per minute
+
+# Inspiration by
+* Romans Chapter 8
+* Rachmaninoff, Lizst, Saint-Sens
+* Late Night Alumni
