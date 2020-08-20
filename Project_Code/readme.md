@@ -29,8 +29,10 @@ GO
 
 <h2>On the Central Database Server</h2>
 <h3>Edit the XEL File Copy Powershell Script</h3>
+*Domain_Server_Trace_file_mover.ps1
+*DMZ_Server_Trace_file_mover.ps1
 
-Edit the section here to point to the same filepath above, but in a UNC syntax:
+Edit the $SourceFolder variable to point to the same filepath above on the remote server, but using UNC syntax:
 <pre>
 # Get Day of Week for Yesterday
 [string]$Day = ((get-date).AddDays(-1)).DayOfWeek
@@ -66,3 +68,11 @@ C:\PSScripts is the default<br>
 <h3>Install the SQL Agent Jobs</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
 *Server Trace - Step 1 - Truncate Work Tables - Daily - 0001.sql
+*Server Trace - Step 2 - Copy Trace Files up from Source Servers.sql
+*Server Trace - Step 3 - Import XE Trace Files.sql
+*Server Trace - Step 4 - Clean XE Data.sql
+*Server Trace - Step 5 - Populate and Process SSAS MD Cube.sql
+*Server Trace - Step 6 - Backup Server SSAS Databases.sql
+
+<h3>Edit the SQL Agent Jobs<h3>
+    
