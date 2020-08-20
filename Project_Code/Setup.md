@@ -4,7 +4,7 @@ Make sure to the edit the file path for the target output XEL file<br>
 When the server lays down the XEL file every day, your file-copy PoSH script will also<br> 
 need to be updated to use the same path but using a UNC syntax:
 
-In the XE Session below, edit the SET filename= section:
+In the XE Session below, edit the '''SET filename=''' section:
 
 <pre>
 CREATE EVENT SESSION [Logins] ON SERVER 
