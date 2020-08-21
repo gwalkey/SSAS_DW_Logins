@@ -3,7 +3,9 @@
 	Parses Extended Event Session XEL Trace Files using SQL Server Library DLLs and [QueryableXEventData]
 	
 .DESCRIPTION
-	
+    This runs on the Central Server, importing all the XEL session files from all your Monitored Servers
+	A SQL Agent Step copies all the XEL Files to a XEL Folder such as D:\Traces with a subfolder per Server
+
 .EXAMPLE
  	
 .EXAMPLE
@@ -19,19 +21,20 @@
 .LINK
     https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/
     https://dba.stackexchange.com/questions/206863/what-is-the-right-tool-to-process-big-xel-files-sql-server-extended-events-log?rq=1
-
 #>
+
 
 [CmdletBinding()]
 Param(
-    [parameter(Position=0,mandatory=$true,ValueFromPipeline)]
+    [parameter(Position=0,mandatory=$false,ValueFromPipeline)]
     [ValidateNotNullOrEmpty()]
     [string]$ServerName='localhost'
+
 )
 
 Set-StrictMode -Version latest;
    
-# Load Assemblies with Hard-Coded filepath
+# Load Assemblies with Hard-Coded filepath per SQL version you are using
 # 130=2016
 # 140=2017
 # 150=2019
@@ -57,14 +60,15 @@ try
 
     # Close Conn
     $Connection.Close()
+
 }
 catch
 {
     Throw('Error Truncating XE_Load Table:{0}' -f $error[0])
 }
 
-# Create Datatable for SqlBulkCopy
-$dt   = New-Object System.Data.DataTable
+# Create Datatable for SqlBulkCopy below
+$dt = New-Object System.Data.DataTable
 $col1 = New-object system.Data.DataColumn StartTime,([datetime])
 $col2 = New-object system.Data.DataColumn DateInteger,([int])
 $col3 = New-object system.Data.DataColumn StartHour,([int])
@@ -87,21 +91,22 @@ $dt.columns.add($col9)
 # Get Yesterday's Name
 [string]$Yesterday = (get-date).AddDays(-1).DayOfWeek
 
-# Import the Daily XEL Files from your central server repo
+# Setup to Import
 $XELFilePath = "d:\traces\"+$ServerName+"\XE_Logins_"+$Yesterday+"*.xel"
 Write-Output('Import all XEL Files from [{0}]' -f $XELFilePath)
 
+# Import the Daily XEL Files
 $Stopwatch1 = [system.diagnostics.stopwatch]::StartNew()
 $Events = new-object Microsoft.SqlServer.XEvent.Linq.QueryableXEventData($XELFilePath)
 $Stopwatch1.stop()
-Write-output("Events Loaded in: {0:N0}:{1}:{2}.{3:00}" -f $Stopwatch1.elapsed.Hours, $Stopwatch1.Elapsed.Minutes, $Stopwatch1.Elapsed.Seconds, $Stopwatch1.Elapsed.Milliseconds)
+Write-output("XEL Events Loaded into Memory Duration: {0:N0}:{1}:{2}.{3:00}" -f $Stopwatch1.elapsed.Hours, $Stopwatch1.Elapsed.Minutes, $Stopwatch1.Elapsed.Seconds, $Stopwatch1.Elapsed.Milliseconds)
 
 # Setup BulkCopy Object
 $bcp = New-Object System.Data.SqlClient.SqlBulkCopy("Data Source=$CentralServer;Initial Catalog=inbound;Integrated Security=SSPI",[System.Data.SqlClient.SqlBulkCopyOptions]::TableLock)
 $bcp.DestinationTableName = "dbo.XE_Load"
 
-# Read and BulkCopy Extended Events up to SQL in batches of 10000
-Write-Output('Read and BulkCopy Extended Events up to SQL in batches of 10000')
+# Read and BulkCopy Events up to SQL in batches of 10000
+Write-Output('Read and BulkCopy Events up to SQL in batches of 10000')
 [long]$eventCount = 0
 $Stopwatch = [system.diagnostics.stopwatch]::StartNew()
 foreach($event in $Events) 
@@ -114,7 +119,7 @@ foreach($event in $Events)
     $row["DateInteger"]      = [int]$($event.Timestamp.LocalDateTime.Year)*10000+[int]$($event.Timestamp.LocalDateTime.month)*100+[int]$($event.Timestamp.LocalDateTime.day)
     $row["StartHour"]        = [int]$event.Actions["collect_system_time"].Value.LocalDateTime.Hour
     
-    # If [username] Actions object is missing, keep going
+    # If SQL Auth Actions property [username] is missing, keep going
     $ErrorActionPreference = "SilentlyContinue"
     $row["UserName"]         = [string]$event.Actions["username"].Value
     $row["ServerName"]       = [string]$event.Actions["server_instance_name"].Value
@@ -125,6 +130,7 @@ foreach($event in $Events)
     $dt.Rows.Add($row)
     $ErrorActionPreference = "Continue"
 
+    # Bulk the batch into SQL
     if($eventCount % 10000 -eq 0) {
         $bcp.WriteToServer($dt)
         $dt.Rows.Clear()
@@ -133,13 +139,15 @@ foreach($event in $Events)
 
 }
 
-# write last batch
-$bcp.WriteToServer($dt) 
-$Stopwatch.stop()
-Write-output("{0:N0} Events Imported in Time: {1}:{2}:{3}.{4:00}" -f $eventCount,$Stopwatch.elapsed.Hours, $Stopwatch.Elapsed.Minutes, $Stopwatch.Elapsed.Seconds, $Stopwatch.Elapsed.Milliseconds)
+# write last batch up
+$bcp.WriteToServer($dt)
+$bcp.Close()
 
-# Move Loaded Rows to Stage Table
-Write-Output('Moving Loaded Rows to XE_Stage Table')
+$Stopwatch.stop()
+Write-output("{0:N0} Read, Parse and Bulk Copy Duration: {1}:{2}:{3}.{4:00}" -f $eventCount,$Stopwatch.elapsed.Hours, $Stopwatch.Elapsed.Minutes, $Stopwatch.Elapsed.Seconds, $Stopwatch.Elapsed.Milliseconds)
+
+# Move Rows from Load to Stage Table
+Write-Output('Moving Loaded Rows to XE_Stage')
 $SQLText1=
 "
 INSERT INTO XE_Stage
