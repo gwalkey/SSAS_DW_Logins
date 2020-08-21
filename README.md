@@ -1,9 +1,9 @@
-# 
-SSAS_DW_Logins is a set of MS technologies combined as a SQL Server Security/Auditing Tool:<br>
-It is a SSAS Tabular Data warehouse with an Excel Front end to track and analyze SQL Server Logins.
+<h1>SSAS_DW_Logins</h1>
+SSAS_DW_Logins is a set of Microsoft technologies combined as a SQL Server Security Auditing Tool:<br>
+It is a SSAS Tabular Data warehouse with an Excel Front end that allows you to track and analyze SQL Server Logins.
 
 # Components:
-1) Extended Event Session to track all SQL Server Login events and save to an .XEL File
+1) Extended Event Session to track all SQL Server Login events saved to .XEL Files
 2) ETL Process to move, load and parse the XEL trace files into a central SQL database
 3) A Transform step to load a DW Star schema database with the tracked Logins
 4) An SSAS Tabular Model for slide-and-dice analysis
