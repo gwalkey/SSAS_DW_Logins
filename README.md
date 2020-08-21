@@ -3,11 +3,11 @@ SSAS_DW_Logins is a set of Microsoft technologies combined as a SQL Server Secur
 It is a SSAS Tabular Data warehouse with an Excel Front end that allows you to track and analyze SQL Server Logins.
 
 # Components:
-1) Extended Event Session to track all SQL Server Login events saved to .XEL Files
-2) ETL Process to move, load and parse the XEL trace files into a central SQL database
-3) A Transform step to load a DW Star schema database with the tracked Logins
-4) An SSAS Tabular Model for slide-and-dice analysis
-5) An Excel Pivot Table to view the historical Logins
+* Extended Event Session to track all SQL Server Login events saved to .XEL Files
+* ETL Process to move, load and parse the XEL trace files into a central SQL database
+* A Transform step to load a DW Star schema database with the tracked Logins
+* An SSAS Tabular Model for slide-and-dice analysis
+* An Excel Pivot Table to view the historical Logins
 
 # Benefits
 This solution allows you to answer questions like
