@@ -371,7 +371,7 @@ EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Call Nex
 		@retry_attempts=0, 
 		@retry_interval=0, 
 		@os_run_priority=0, @subsystem=N'TSQL', 
-		@command=N'EXEC msdb.dbo.sp_start_job N''Server Trace - Step 5 - Populate and Process SSAS MD Cube'';', 
+		@command=N'EXEC msdb.dbo.sp_start_job N''Server Trace - Step 5 - Populate and Process SSAS Tabular Model'';', 
 		@database_name=N'master', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
