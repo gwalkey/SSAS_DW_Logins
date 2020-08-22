@@ -1,4 +1,4 @@
-Install each SQL Agent JOb using SSMS
+Install each SQL Agent Job using SSMS
 
 The first job, [Server Trace - Step 1 - Truncate Work Tables - Daily - 0001.sql] is on a midnight 0000 Schedule
 
