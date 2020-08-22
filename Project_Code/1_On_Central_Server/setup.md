@@ -1,6 +1,6 @@
 * Install the Central Server Databases
-** Inbound
-** ServerTrace_DW
+* * Inbound
+* * ServerTrace_DW
 
 * Copy the Powershell .ps1 scripts to a folder on your Central Server (default c:\psscripts) and enable running of Powershell scripts
 
