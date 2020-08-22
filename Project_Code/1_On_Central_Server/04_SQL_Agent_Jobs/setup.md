@@ -1,6 +1,6 @@
 Install each SQL Agent Job using SSMS
 
-The first job, [Server Trace - Step 1 - Truncate Work Tables - Daily - 0001.sql] starts on a midnight 0000 Schedule
+The first job, [Server Trace - Step 1 - Truncate Work Tables - Daily - 0001.sql] starts on a minute-after-midnight 0001 Schedule
 
 The SQL Agent Jobs call the next one in the chain
 
