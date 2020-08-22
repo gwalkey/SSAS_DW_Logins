@@ -40,9 +40,10 @@ Performs the loading of the Extended Event Session XEL files into the Trace_Load
 * Alter the version-specific paths of the Extended Events DLLs:
 <pre>
 # Load Assemblies with Hard-Coded filepath per SQL version you are using
-# 130=2016
-# 140=2017
-# 150=2019
+# 130=SQL2016
+# 140=SQL2017
+# 150=SQL2019
+# 160=SQL2022
 Add-Type -Path 'C:\Program Files\Microsoft SQL Server\150\Shared\Microsoft.SqlServer.XE.Core.dll'
 Add-Type -Path 'C:\Program Files\Microsoft SQL Server\150\Shared\Microsoft.SqlServer.XEvent.Linq.dll'
 </pre>
