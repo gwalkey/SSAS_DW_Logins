@@ -1,8 +1,8 @@
 <h2>Central Server Installation Sequence</h2> 
 
 * Install the Central Server Databases
-  * Inbound
-  * ServerTrace_DW
+  * OLTP
+  * OLAP
 
 * Copy the Powershell .ps1 scripts to a folder on your Central Server (default c:\psscripts) and enable running of Powershell scripts
 
