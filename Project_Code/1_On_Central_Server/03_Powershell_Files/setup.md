@@ -3,28 +3,28 @@ The SQL Agent Jobs call the Powershell scripts from these default folders
 
 <h3>Install File Movers</h3>
 Make a Folder on your Central Server (default path is c:\psscripts\trace_file_movers) and copy these files there:
-* DMZ_Server_Trace_file_mover.ps1
-* Delete_all_xel_files.ps1
-* Domain_Server_Trace_file_mover.ps1
+ * DMZ_Server_Trace_file_mover.ps1
+ * Delete_all_xel_files.ps1
+ * Domain_Server_Trace_file_mover.ps1
 
 <h3>Install XE Loader</h3>
 Make a Folder on your Central Server (default path is c:\psscripts\XE) and copy these files there:
-* XEvents_Loader.ps1
+ * XEvents_Loader.ps1
   
 <h2>XEL Trace File Subfolders</h2>
 Make a set of subfolders to hold the XEL files copied up from each server<br>
 The XEL Loader will look here for XEL input<br>
-* D:\Traces\DomainServer1
-* D:\Traces\DomainServer2
-* D:\Traces\DomainServer3
-* D:\Traces\DMZServer1
+ * D:\Traces\DomainServer1
+ * D:\Traces\DomainServer2
+ * D:\Traces\DomainServer3
+ * D:\Traces\DMZServer1
 
 <h2>Customize the Powershell scripts</h2> 
 Next, you will need to customize the Powershell scripts
 
 <h3>DMZ_Server_Trace_file_mover.ps1</h3> 
 Copies XEL files from DMZ/SQL Auth servers to your Central Server's import folder (d:\traces by default)<br><br>
-* Add a section for each remote server using (Mapped Drives)
+ * Add a section for each remote server using (Mapped Drives)
 <pre>
 # Get Day of Week for Yesterday
 [string]$Day = ((get-date).AddDays(-1)).DayOfWeek
