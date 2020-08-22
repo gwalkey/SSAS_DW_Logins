@@ -10,7 +10,7 @@ $SourceFolder='K:\traces\'
 
 * Alter the Destination Folder:
 <pre>
-Move-Item -Path $filespec -Destination '''d:\traces\DMZSERVER1''' -Force -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
+Move-Item -Path $filespec -Destination 'd:\traces\DMZSERVER1' -Force -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
 </pre>
 
 <h2>Domain_Server_Trace_file_mover.ps1</h2> 
@@ -23,5 +23,37 @@ $SourceFolder='\\domain_server1\d$\traces\'
 
 * Alter the Destination Folder:
 <pre>
-Move-Item -Path $filespec -Destination '''d:\traces\DOMAINSERVER1''' -Force -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
+Move-Item -Path $filespec -Destination 'd:\traces\DOMAINSERVER1' -Force -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
 </pre>
+
+<h2>Delete_all_xel_files.ps1</h2> 
+Deletes the XEL files from the default (d:\traces) folder after they are imported to the SQL Databases<br><br>
+
+* Alter the GCI path for the Central Server's default import folder (d:\traces)
+<pre>
+$Files = gci -path "d:\traces\*.xel" -Recurse | select fullname 
+</pre>
+
+* Alter the Destination Folder:
+<pre>
+Move-Item -Path $filespec -Destination 'd:\traces\DOMAINSERVER1' -Force -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
+</pre>
+
+<h2>XEvents_Loader.ps1</h2> 
+Performs the loading of the Extended Event Session XEL files into the Trace_Load SQL table
+
+* Alter the version-specific paths of the Extended Events DLLs:
+<pre>
+# Load Assemblies with Hard-Coded filepath per SQL version you are using
+# 130=2016
+# 140=2017
+# 150=2019
+Add-Type -Path 'C:\Program Files\Microsoft SQL Server\150\Shared\Microsoft.SqlServer.XE.Core.dll'
+Add-Type -Path 'C:\Program Files\Microsoft SQL Server\150\Shared\Microsoft.SqlServer.XEvent.Linq.dll'
+</pre>
+
+* Alter the locaton of the XEL Load Folder:
+<pre>
+$XELFilePath = "d:\traces\"+$ServerName+"\XE_Logins_"+$Yesterday+"*.xel"
+</pre>
+
