@@ -40,3 +40,6 @@ Using the XEvent.Linq.dll and XECore.dll assemblies, we can load over 1M events 
 # Notes
 * You can query the SQL DW Star-Schema Database directly or create a Power BI model from the same
 * Making the SSAS Tabular model described here optional
+
+# v.Next
+* Power BI Dashboards to show Time of day outliers
