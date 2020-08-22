@@ -27,9 +27,9 @@ Using the XEvent.Linq.dll and XECore.dll assemblies, we can load over 1M events 
 
 # Inspiration by
 * Romans Chapter 8 - https://classic.biblegateway.com/passage/?search=romans+8&version=AMPC
-* Rachmaninoff - https://www.youtube.com/watch?v=vpaPWuDQUcc&t=98s
+* Rachmaninoff - https://youtu.be/vpaPWuDQUcc
 * Mozart - https://youtu.be/Rb0UmrCXxVA
-* Lizst - https://www.youtube.com/watch?v=salrwSVWpC4&t=51s
+* Lizst - https://youtu.be/salrwSVWpC4
 * Late Night Alumni - https://www.youtube.com/playlist?list=PLtZ9dBSEHSuCxOJ_oUypS1EvhX0MwCQf5
 
 # Sample Report
