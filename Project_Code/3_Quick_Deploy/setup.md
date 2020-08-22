@@ -2,6 +2,8 @@
 
 * You can accelerate the system setup step by restoring the 2 SQL and 1 SSAS Tabular Databases<br>
 * You might want to delete the sample data in there and re-process the Tabular Model
+* All SQL Agent Jobs, Posh Scripts and Tabular Model conncetions point to '''localhost'''
+* The default installation is for both SQL and SSAS Tabular installed on the same box
 
 <h3>OLTP Database</h3>
 Restore the [inbound.bak]
