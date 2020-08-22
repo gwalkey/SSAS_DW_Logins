@@ -3,7 +3,7 @@ You will need to customize all the Powershell scripts to match your Central Serv
 <h2> DMZ_Server_Trace_file_mover.ps1</h2>
 Copies XEL files from DMZ/SQL Auth server to your Central Server's import folder (d:\traces by default)<br>
 
-* Alter the Source location:
+* Alter the Source location for the XEL files from each remote server:
 <pre>
 $SourceFolder='K:\traces\'
 </pre>
