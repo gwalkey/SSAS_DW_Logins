@@ -1,7 +1,7 @@
 USE [msdb]
 GO
 
-/****** Object:  Job [Server Trace - Step 5 - Populate and Process SSAS MD Cube]    Script Date: 8/21/2020 8:45:03 PM ******/
+/****** Object:  Job [Server Trace - Step 5 - Populate and Process SSAS Tabular Model]    Script Date: 8/21/2020 8:45:03 PM ******/
 BEGIN TRANSACTION
 DECLARE @ReturnCode INT
 SELECT @ReturnCode = 0
@@ -14,7 +14,7 @@ IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
 END
 
 DECLARE @jobId BINARY(16)
-EXEC @ReturnCode =  msdb.dbo.sp_add_job @job_name=N'Server Trace - Step 5 - Populate and Process SSAS MD Cube', 
+EXEC @ReturnCode =  msdb.dbo.sp_add_job @job_name=N'Server Trace - Step 5 - Populate and Process SSAS Tabular Model', 
 		@enabled=1, 
 		@notify_level_eventlog=0, 
 		@notify_level_email=2, 
