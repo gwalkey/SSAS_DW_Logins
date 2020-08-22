@@ -3,17 +3,20 @@ The SQL Agent Jobs call the Powershell scripts from these default folders
 
 <h3>Install File Movers</h3>
 Make a Folder on your Central Server (default path is c:\psscripts\trace_file_movers) and copy these files there:<br>
+
 * DMZ_Server_Trace_file_mover.ps1
 * Delete_all_xel_files.ps1
 * Domain_Server_Trace_file_mover.ps1
 
 <h3>Install XE Loader</h3>
 Make a Folder on your Central Server (default path is c:\psscripts\XE) and copy these files there:<br>
+
 * XEvents_Loader.ps1
   
 <h2>XEL Trace File Subfolders</h2>
 Make a set of subfolders to hold the XEL files copied up from each server<br>
 The XEL Loader will look here for XEL input<br>
+
 * D:\Traces\DomainServer1
 * D:\Traces\DomainServer2
 * D:\Traces\DomainServer3
