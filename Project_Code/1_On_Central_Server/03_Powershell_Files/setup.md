@@ -1,4 +1,4 @@
-You will need to customize all the Powershell scripts to match your Central Server drives
+You will need to customize these Powershell scripts to match your Central Server
 
 <h2>DMZ_Server_Trace_file_mover.ps1</h2> 
 Copies XEL files from DMZ/SQL Auth servers to your Central Server's import folder (d:\traces by default)<br><br>
