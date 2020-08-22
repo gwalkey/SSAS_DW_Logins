@@ -1,4 +1,4 @@
-h2>Design Details</h2>
+<h2>Design Details</h2>
 
 * The ETL does a typical automatic probe and load of new Dimensions members(Type 1 only)
 * There is no usage of SSIS to load Dimension and Fact tables ...because SQL can do that with the MERGE statment
