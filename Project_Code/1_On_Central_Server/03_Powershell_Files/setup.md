@@ -1,4 +1,14 @@
-You will need to customize these Powershell scripts to match your Central Server
+First, make a Folder on your Central (default is c:\psscripts) and copy these files there:
+* DMZ_Server_Trace_file_mover.ps1
+* Delete_all_xel_files.ps1
+* Domain_Server_Trace_file_mover.ps1
+
+Make a Subfolder (c:\psscripts\trace_file_movers) and copy this file there:
+* XEvents_Loader.ps1
+
+The SQL Agnet Jobs call the Powershell scripts from these default folders
+
+Next, you will need to customize these Powershell scripts to match your Central Server
 
 <h2>DMZ_Server_Trace_file_mover.ps1</h2> 
 Copies XEL files from DMZ/SQL Auth servers to your Central Server's import folder (d:\traces by default)<br><br>
