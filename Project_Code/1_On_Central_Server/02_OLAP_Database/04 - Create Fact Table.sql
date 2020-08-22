@@ -8,7 +8,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Fact_Trace](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ID] [bigint] IDENTITY(1,1) NOT NULL,
 	[DateID] [int] NOT NULL,
 	[HourID] [int] NOT NULL,
 	[ServerNameID] [int] NOT NULL,
