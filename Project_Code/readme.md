@@ -24,6 +24,7 @@ WITH (MAX_MEMORY=4096 KB,EVENT_RETENTION_MODE=ALLOW_SINGLE_EVENT_LOSS,MAX_DISPAT
 
 <h3>Install the SQL Agent job to cycle the XE Session</h3>
 In SSMS on your Remote Servers, execute this SQL to create the Agent Job<br>
+
 * Server Trace - XE Login Session Restart - 000000.sql
 
 <h3>Edit the Agent Job </h3>
@@ -74,11 +75,13 @@ IF DATEPART(WEEKDAY,GETDATE())=7
 
 <h3>Create the OLTP Database</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
+
 * 01 - Create Inbound Database.sql<br>
 * 02 - Create Inbound DB Tables.sql<br>
 
 <h3>Create the OLAP Database</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
+
 * 01 - Create OLAP Database.sql<br>
 * 02 - Create Date Dimension.sql<br>
 * 03 - Create Other Dimension Tables.sql<br>
@@ -87,12 +90,14 @@ In SSMS on your Central Server, execute these SQL scripts:<br>
 <h3>Install the Powershell Scripts</h3>
 Copy the Powershell script to a folder on your central server<br>
 **C:\PSScripts\trace_file_movers** is the default<br>
+
 * Delete_all_xel_files.ps1<br>
 * DMZ_Server_Trace_file_mover.ps1<br>
 * Domain_Server_Trace_file_mover.ps1<br>
 * XEvents_Loader.ps1<br>
 
 <h3>Edit the XEL File Copy Powershell Scripts</h3>
+
 * Domain_Server_Trace_file_mover.ps1<br>
 * DMZ_Server_Trace_file_mover.ps1<br>
 
@@ -111,6 +116,7 @@ Move-Item -Path $FileSpec -Destination d:\traces\domain_server1  -Force -ErrorAc
 
 <h3>Install the SQL Agent Jobs</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
+
 * Server Trace - Step 1 - Truncate Work Tables - Daily - 0001.sql<br>
 * Server Trace - Step 2 - Copy Trace Files up from Source Servers.sql<br>
 * Server Trace - Step 3 - Import XE Trace Files.sql<br>
@@ -119,7 +125,9 @@ In SSMS on your Central Server, execute these SQL scripts:<br>
 
 <h3>Edit the SQL Agent Jobs</h3>
 Finally, we need to edit the ETL agent jobs to suit our environment:<br>
+
 * Edit Job 3 (Server Trace - Step 3 - Import XE Trace Files.sq) and create a Step for each Remote Server's XEL Files you plan to import<br>
+
 Change the **Owner-PC** powershell Script parameter to point to the sub folder in D:\traces\server1<br>
 that hold the XEL files for that server:<br>
 A Mutli-server setup will have this XEL file structure on your Central Server:<br>
