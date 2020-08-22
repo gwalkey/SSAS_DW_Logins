@@ -1,5 +1,5 @@
-<h1>SSAS_DW_Logins</h1>
-SSAS_DW_Logins is a set of Microsoft technologies combined as a SQL Server Security Auditing Tool:<br>
+<h1>A SQL Server SSAS Tabular Model for tracking SQL Server Logins</h1>
+SSAS_DW_Logins is a set of Microsoft technologies combined into a SQL Server Security Auditing Tool:<br>
 It is a SSAS Tabular Data warehouse with an Excel Front end that allows you to track and analyze SQL Server Logins.
 
 # Components:
@@ -34,3 +34,7 @@ Using the XEvent.Linq.dll and XECore.dll assemblies, we can load over 1M events 
 
 # Sample Report
 ![alt text](https://raw.githubusercontent.com/gwalkey/SSAS_DW_Logins/master/DW_Logins_Excel_Model.jpg)
+
+# Notes
+* You can query the SQL DW Star-Schema Database directly or create a Power BI model from the same
+* Making the SSAS Tabular model described here optional
