@@ -1,3 +1,4 @@
+<h2>Install Powershell Scripts</h2> 
 First, make a Folder on your Central Server (default path is c:\psscripts) and copy these files there:
 * DMZ_Server_Trace_file_mover.ps1
 * Delete_all_xel_files.ps1
