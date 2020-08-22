@@ -3,7 +3,7 @@ SSAS_DW_Logins is a set of Microsoft technologies combined into a SQL Server Sec
 
 # Attention SQL SATURDAY  Salt Lake 2020 Peeps:
 My Final PDF Slides will be a BIT longer, as this entire solution requires more explanation than can fit into 1 hour<br>
-I asked for 90mins and got 60. :(<br>
+I asked for 90mins and got 60.<br>
 Its ok, we'll make it through!
 
 # Components:
