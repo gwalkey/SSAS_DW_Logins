@@ -1,2 +1,0 @@
-Run these SQL Script in order
-
