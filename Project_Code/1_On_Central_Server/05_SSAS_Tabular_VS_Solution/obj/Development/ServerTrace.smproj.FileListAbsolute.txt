@@ -1,0 +1,7 @@
+C:\Archive\downloads\SSAS_DW_Logins-master\Project_Code\1_On_Central_Server\05_SSAS_Tabular_VS_Solution\ServerTrace\obj\Development\ServerTrace.smproj.CoreCompileInputs.cache
+C:\Archive\downloads\SSAS_DW_Logins-master\Project_Code\1_On_Central_Server\05_SSAS_Tabular_VS_Solution\ServerTrace\bin\Logins.asdatabase
+C:\Archive\downloads\SSAS_DW_Logins-master\Project_Code\1_On_Central_Server\05_SSAS_Tabular_VS_Solution\ServerTrace\bin\Logins.deploymenttargets
+C:\Archive\downloads\SSAS_DW_Logins-master\Project_Code\1_On_Central_Server\05_SSAS_Tabular_VS_Solution\ServerTrace\bin\Logins.deploymentoptions
+C:\Archive\downloads\SSAS_DW_Logins-master\Project_Code\1_On_Central_Server\05_SSAS_Tabular_VS_Solution\ServerTrace\obj\Development\Logins.asdatabase
+C:\Archive\downloads\SSAS_DW_Logins-master\Project_Code\1_On_Central_Server\05_SSAS_Tabular_VS_Solution\ServerTrace\obj\Development\Logins.deploymentoptions
+C:\Archive\downloads\SSAS_DW_Logins-master\Project_Code\1_On_Central_Server\05_SSAS_Tabular_VS_Solution\ServerTrace\obj\Development\Logins.deploymenttargets
