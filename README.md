@@ -1,10 +1,10 @@
 <h1>A SQL Server SSAS Tabular Model for tracking SQL Server Logins</h1>
 SSAS_DW_Logins is a set of Microsoft technologies combined into a SQL Server Security Auditing Tool<br>
 
-# Attention SQL SATURDAY Geeks!
+# Attention SQL SATURDAY  Salt Lake 2020 Peeps:
 My Final PDF Slides will be a BIT longer, as this entire solution requires more explanation than can fit into 1 hour<br>
 I asked for 90mins and got 60. :(<br>
-Its ok, we'll make it!
+Its ok, we'll make it through!
 
 # Components:
 * Extended Event Session to track all SQL Server Login events saved to .XEL Files
