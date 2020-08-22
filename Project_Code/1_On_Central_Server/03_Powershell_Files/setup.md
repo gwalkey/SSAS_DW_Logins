@@ -34,11 +34,6 @@ Deletes the XEL files from the default (d:\traces) folder after they are importe
 $Files = gci -path "d:\traces\*.xel" -Recurse | select fullname 
 </pre>
 
-* Alter the Destination Folder:
-<pre>
-Move-Item -Path $filespec -Destination 'd:\traces\DOMAINSERVER1' -Force -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
-</pre>
-
 <h2>XEvents_Loader.ps1</h2> 
 Performs the loading of the Extended Event Session XEL files into the Trace_Load SQL table
 
