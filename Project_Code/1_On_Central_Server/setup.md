@@ -7,5 +7,6 @@
 * Install the SQL Agent Jobs
 
 * Open the Visual Studio 2017 SSAS Tabular Solution and Deploy it to the Tabular instance of your choice
-  * If your Tabular instance is NOT on the Central Server runnin the SQL engine, <br>
+ * If your tabular instance is on the SAME server as your Central Server's SQL engine, you are done
+ * If your Tabular instance is NOT on the Central Server runnin the SQL engine, <br>
   you will need to alter the DataSource of the Tabular Model to point to the SQL Database '''ServerTrace_DW'''
