@@ -70,7 +70,7 @@ IF DATEPART(WEEKDAY,GETDATE())=7
 
 <h2>On the Central Database Server</h2>
 <h3>Install SQL Server</h3>
-<h3>Install SSAS in Tabular mode with instance name [tabular]</h3>
+<h3>Install SSAS in Tabular mode</h3>
 
 <h3>Create the OLTP Database</h3>
 In SSMS on your Central Server, execute these SQL scripts:<br>
