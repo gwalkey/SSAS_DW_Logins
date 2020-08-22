@@ -35,7 +35,7 @@ $Files = gci -path "d:\traces\*.xel" -Recurse | select fullname
 </pre>
 
 <h2>XEvents_Loader.ps1</h2> 
-Performs the loading of the Extended Event Session XEL files into the Trace_Load SQL table
+Performs the loading of the Extended Event Session XEL files into the Trace_Load SQL table<br><br>
 
 * Alter the version-specific paths of the Extended Events DLLs:
 <pre>
