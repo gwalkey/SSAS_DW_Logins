@@ -19,6 +19,9 @@ package and upload patient data from inside the firewall
 
 I had the idea that if you could find the the access outliers, you could "find the rogue query", and here we are with this project
 
+<h4>Anthem Internal Memo</h4>
+![alt text](https://raw.githubusercontent.com/gwalkey/SSAS_DW_Logins/master/Project_Code/4_Dev_Notes/anthem_memo-100567092-orig.jpg)
+
 <h3>Design Choices</h3>
 * The ETL does a typical automatic probe and load of new Dimensions members (Kimball Type 1 only)
 * There is no usage of SSIS to load Dimension and Fact tables ...because SQL can do that with the MERGE statment
