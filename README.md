@@ -2,9 +2,7 @@
 SSAS DW Logins is a set of Microsoft technologies combined into a SQL Server Security Auditing Tool<br>
 
 # Attention SQL SATURDAY  Salt Lake 2020 Peeps:
-My Final PDF Slides will be a BIT longer, as this entire solution requires more explanation than can fit into 1 hour<br>
-I asked for 90mins and got 60.<br>
-Its ok, we'll make it through!
+Look forward to seeing you next week
 
 # Components:
 * Extended Event Session to track all SQL Server Login events saved to .XEL Files
