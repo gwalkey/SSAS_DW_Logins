@@ -4,5 +4,5 @@
 
 <h2>Add the SQL Agent Job</h2>
 
-* The Job Resets the XE Seesion at 0001 daily by dropping and changing the file target's daily name<br>
+* The Job resets the XE Session at 0001 daily by dropping and renaming the file target<br>
 * The XE Session never has to stop running
