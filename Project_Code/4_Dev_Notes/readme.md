@@ -1,13 +1,13 @@
 <h2>Design Details</h2>
 
 <h3>Idea Genesis</h3>
-Original idea came in 2015 after hearing of the Anthem SQL Server database compromise and subsequent FBI
-and NSA post-mortem evaluation. A DBA woke up to find queries runhing with his credentials. NOT Cool.
+Original idea came in 2015 after hearing of a SQL Server database compromise and subsequent FBI
+and NSA post-mortem evaluation. A DBA woke up to find queries running with his credentials. NOT Cool.
 
 * An APT got on the victims network, sniffed packets, reconned the network, found the SQL Servers and started to run, 
 package and upload patient data from inside the firewall
 
-* Anthem post-mortem remediations included
+* Post-mortem remediations included
   * Changing passwords on a regular basis
   * Log all SQL access
   * Rework all SQL security from the ground up as initial grant-none
@@ -18,9 +18,6 @@ package and upload patient data from inside the firewall
   * Hire someone to read the security logs
 
 I had the idea that if you could find the the access outliers, you could "find the rogue query", and here we are with this project
-
-<h4>Anthem Internal Memo</h4>
-![alt text](anthem_memo-100567092-orig.jpg)
 
 <h3>Design Choices</h3>
 * The ETL does a typical automatic probe and load of new Dimensions members (Kimball Type 1 only)
@@ -34,7 +31,7 @@ The Original design used SSAS Multi-Dimensional
 * My First Data Warehouse
 * Tabular still 1.0-ish in 2014
 * Didn’t have enough $$$ Memory on Server for Tabular
-* Didn’t have Enterprise Edition
+* Didn’t have ENOUGH $$$ for Enterprise Edition
 * Learned Data Warehousing using MD and MDX instead of Excel functions (DAX)
 
 <h2> Operational Statistics</h2>
@@ -49,6 +46,6 @@ The Original design used SSAS Multi-Dimensional
 
 <h2> Optional Enhancements</h2>
 
-* Power BI Outlier Detection: logging in outside norms (name/hour) or(name/host)
+* Power BI Outlier Detection: logins outside norms (name/hour) or(name/host)
 * Email Notification of newly arriving Dimension members
 * Threshold Alerting (± 2.5 Std Dev) of prior days connections (system hung or dead)
