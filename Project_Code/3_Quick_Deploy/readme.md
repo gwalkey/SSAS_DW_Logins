@@ -2,8 +2,8 @@
 
 * You can accelerate the system setup by restoring the SQL and SSAS Tabular Databases instead of building them from scratch<br>
 * Once restored, you should delete the sample SQL data in the <b>ServerTrace_DW</b> Database tables and re-process the Tabular Model
-* All SQL Agent Jobs, Posh Scripts and Tabular Model conncetions point to '''localhost'''
-* The default installation was for both SQL and SSAS Tabular installed on the same box
+* All SQL Agent Jobs, Posh Scripts and Tabular Model connections default to '''localhost'''
+* The default installation has SQL and SSAS Tabular installed on the same box
 
 <h3>OLTP Database</h3>
 Restore the [inbound.bak]
