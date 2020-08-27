@@ -76,11 +76,7 @@ IF DATEPART(WEEKDAY,GETDATE())=7
 	ALTER EVENT SESSION [Logins] ON SERVER 
 	ADD TARGET package0.event_file(SET filename=N''D:\Traces\OWNER-PC\XE_Logins_Saturday.xel'',max_file_size=100, max_rollover_files = 100)
 
--- Start the Event Session
-ALTER EVENT SESSION [Logins]
-ON SERVER 
-STATE = START;
-GO', 
+', 
 		@database_name=N'master', 
 		@flags=12
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
