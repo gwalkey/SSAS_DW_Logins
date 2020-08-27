@@ -1,6 +1,6 @@
 <h2>Install Powershell Scripts</h2> 
 The SQL Agent Jobs call the Powershell scripts from the default folders in:<br>
-c:\psscripts<br>
+<b>c:\psscripts</b> on your Central Server<br>
 
 <h3>Install File Movers</h3>
 Make a Folder on your Central Server and copy these files there:<br>
