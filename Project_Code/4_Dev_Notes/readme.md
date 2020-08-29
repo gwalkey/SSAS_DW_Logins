@@ -39,7 +39,7 @@ The Original design used SSAS Multi-Dimensional
 
 * 35 Million Fact Table Rows
 * 25 Billion Logins
-* SQL OLAP Database (Clustered Columnstore Index and traditional b-tree indexes on Foreign Keys)  - 4GB
+* SQL OLAP Database (Both Columnstore Index and Rowstore indexes on Foreign Keys on Fact Table)  - 4GB
 * SSAS MD Cube - 300MB
 * SSAS Tabular Model - 520MB
 * Yes, MD is smaller using MOLAP Storage than xVelocity 
