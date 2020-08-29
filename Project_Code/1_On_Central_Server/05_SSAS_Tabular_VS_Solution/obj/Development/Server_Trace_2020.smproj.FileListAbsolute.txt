@@ -1,0 +1,7 @@
+C:\CloudSQL\SQL Server\SSAS\Server_Trace_2020\bin\Model.asdatabase
+C:\CloudSQL\SQL Server\SSAS\Server_Trace_2020\bin\Model.deploymenttargets
+C:\CloudSQL\SQL Server\SSAS\Server_Trace_2020\bin\Model.deploymentoptions
+C:\CloudSQL\SQL Server\SSAS\Server_Trace_2020\obj\Development\Server_Trace_2020.smproj.CoreCompileInputs.cache
+C:\CloudSQL\SQL Server\SSAS\Server_Trace_2020\obj\Development\Model.asdatabase
+C:\CloudSQL\SQL Server\SSAS\Server_Trace_2020\obj\Development\Model.deploymentoptions
+C:\CloudSQL\SQL Server\SSAS\Server_Trace_2020\obj\Development\Model.deploymenttargets
