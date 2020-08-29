@@ -1,4 +1,4 @@
-<h1>A SQL Server SSAS Tabular Model for tracking SQL Server Logins</h1>
+<h1>A SQL Server Data Warehousee for tracking Logins</h1>
 SSAS DW Logins is a set of Microsoft technologies combined into a SQL Server Security Auditing Tool<br>
 
 # Attention SQL SATURDAY  Salt Lake 2020 Peeps:
