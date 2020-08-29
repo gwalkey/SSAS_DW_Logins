@@ -19,7 +19,10 @@
 .NOTES
    
 .LINK
+    Slow:
     https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/
+    
+    Fast:
     https://dba.stackexchange.com/questions/206863/what-is-the-right-tool-to-process-big-xel-files-sql-server-extended-events-log?rq=1
 #>
 
@@ -38,6 +41,7 @@ Set-StrictMode -Version latest;
 # 130=2016
 # 140=2017
 # 150=2019
+# 160=2010 (Wonder if anyone will notice this)
 Add-Type -Path 'C:\Program Files\Microsoft SQL Server\150\Shared\Microsoft.SqlServer.XE.Core.dll'
 Add-Type -Path 'C:\Program Files\Microsoft SQL Server\150\Shared\Microsoft.SqlServer.XEvent.Linq.dll'
 
