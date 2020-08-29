@@ -13,15 +13,15 @@ Look forward to seeing you Today!
 
 # Benefits
 This solution allows you to answer questions like
-* Who logged in
-* From what Hosts
-* At what Time
-* What Application did they use
-* What Databases did they access
-* Show me all hosts that access a certain database
-* Show me all access for any person
+* Who logged in to my Server?
+* From what Hosts?
+* At what Time?
+* What Application did they use?
+* What Databases did they access?
+* Show me all hosts that accessed a certain database
+* Show me all access for any one person
 * Why is that app logging in 20,000 times per hour?
-* Connection string tracking
+* Connection string troubleshooting
 
 # ETL Performance
 * Using sys.fn_xe_file_target_read_file = 11 Hours
