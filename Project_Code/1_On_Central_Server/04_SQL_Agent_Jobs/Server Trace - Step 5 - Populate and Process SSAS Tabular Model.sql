@@ -1,11 +1,11 @@
 USE [msdb]
 GO
 
-/****** Object:  Job [Server Trace - Step 5 - Populate and Process SSAS Tabular Model]    Script Date: 8/21/2020 8:45:03 PM ******/
+/****** Object:  Job [Server Trace - Step 5 - Populate and Process SSAS Tabular Model]    Script Date: 8/28/2020 10:14:04 PM ******/
 BEGIN TRANSACTION
 DECLARE @ReturnCode INT
 SELECT @ReturnCode = 0
-/****** Object:  JobCategory [[Uncategorized (Local)]]    Script Date: 8/21/2020 8:45:03 PM ******/
+/****** Object:  JobCategory [[Uncategorized (Local)]]    Script Date: 8/28/2020 10:14:04 PM ******/
 IF NOT EXISTS (SELECT name FROM msdb.dbo.syscategories WHERE name=N'[Uncategorized (Local)]' AND category_class=1)
 BEGIN
 EXEC @ReturnCode = msdb.dbo.sp_add_category @class=N'JOB', @type=N'LOCAL', @name=N'[Uncategorized (Local)]'
@@ -28,7 +28,7 @@ Process SSAS Dimensions and Cube',
 		@owner_login_name=N'sa', 
 		@notify_email_operator_name=N'DBA', @job_id = @jobId OUTPUT
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [Step 1a - Add New Members to Server Dimension]    Script Date: 8/21/2020 8:45:04 PM ******/
+/****** Object:  Step [Step 1a - Add New Members to Server Dimension]    Script Date: 8/28/2020 10:14:04 PM ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Step 1a - Add New Members to Server Dimension', 
 		@step_id=1, 
 		@cmdexec_success_code=0, 
@@ -69,7 +69,7 @@ WHEN NOT MATCHED BY TARGET
 		@database_name=N'ServerTrace_DW', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [Step 1b - Add New Members to Database Dimension]    Script Date: 8/21/2020 8:45:04 PM ******/
+/****** Object:  Step [Step 1b - Add New Members to Database Dimension]    Script Date: 8/28/2020 10:14:04 PM ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Step 1b - Add New Members to Database Dimension', 
 		@step_id=2, 
 		@cmdexec_success_code=0, 
@@ -110,7 +110,7 @@ WHEN NOT MATCHED BY TARGET
 		@database_name=N'ServerTrace_DW', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [Step 1c - Add New Members to Host Dimension]    Script Date: 8/21/2020 8:45:04 PM ******/
+/****** Object:  Step [Step 1c - Add New Members to Host Dimension]    Script Date: 8/28/2020 10:14:04 PM ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Step 1c - Add New Members to Host Dimension', 
 		@step_id=3, 
 		@cmdexec_success_code=0, 
@@ -151,7 +151,7 @@ WHEN NOT MATCHED BY TARGET
 		@database_name=N'ServerTrace_DW', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [Step 1d - Add New Members to SessionLoginName Dimension]    Script Date: 8/21/2020 8:45:04 PM ******/
+/****** Object:  Step [Step 1d - Add New Members to SessionLoginName Dimension]    Script Date: 8/28/2020 10:14:04 PM ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Step 1d - Add New Members to SessionLoginName Dimension', 
 		@step_id=4, 
 		@cmdexec_success_code=0, 
@@ -194,7 +194,7 @@ WHEN NOT MATCHED BY TARGET
 		@database_name=N'ServerTrace_DW', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [Step 1e - Add New Members to ApplicationName Dimension]    Script Date: 8/21/2020 8:45:04 PM ******/
+/****** Object:  Step [Step 1e - Add New Members to ApplicationName Dimension]    Script Date: 8/28/2020 10:14:04 PM ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Step 1e - Add New Members to ApplicationName Dimension', 
 		@step_id=5, 
 		@cmdexec_success_code=0, 
@@ -238,7 +238,7 @@ WHEN NOT MATCHED BY TARGET
 		@database_name=N'ServerTrace_DW', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [Step 2 - Populate DW Cube Fact Table from Inbound Trace3 Hourly Aggregates]    Script Date: 8/21/2020 8:45:04 PM ******/
+/****** Object:  Step [Step 2 - Populate DW Cube Fact Table from Inbound Trace3 Hourly Aggregates]    Script Date: 8/28/2020 10:14:04 PM ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Step 2 - Populate DW Cube Fact Table from Inbound Trace3 Hourly Aggregates', 
 		@step_id=6, 
 		@cmdexec_success_code=0, 
@@ -288,9 +288,35 @@ where
 		@database_name=N'ServerTrace_DW', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [Step 10 - Process Tabular DB]    Script Date: 8/21/2020 8:45:04 PM ******/
-EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Step 10 - Process Tabular DB', 
+/****** Object:  Step [Step 10 - Process Tabular Model - Fact Table]    Script Date: 8/28/2020 10:14:04 PM ******/
+EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Step 10 - Process Tabular Model - Fact Table', 
 		@step_id=7, 
+		@cmdexec_success_code=0, 
+		@on_success_action=3, 
+		@on_success_step_id=0, 
+		@on_fail_action=2, 
+		@on_fail_step_id=0, 
+		@retry_attempts=0, 
+		@retry_interval=0, 
+		@os_run_priority=0, @subsystem=N'ANALYSISCOMMAND', 
+		@command=N'{
+  "refresh": {
+    "type": "full",
+    "objects": [
+      {
+        "database": "ServerTrace",
+        "table": "Fact_Trace"
+      }
+    ]
+  }
+}', 
+		@server=N'HPZ820', 
+		@database_name=N'ServerTrace', 
+		@flags=8
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+/****** Object:  Step [Step 11 - Process Tabular Model - Database]    Script Date: 8/28/2020 10:14:04 PM ******/
+EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Step 11 - Process Tabular Model - Database', 
+		@step_id=8, 
 		@cmdexec_success_code=0, 
 		@on_success_action=3, 
 		@on_success_step_id=0, 
@@ -309,13 +335,13 @@ EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Step 10 
     ]
   }
 }', 
-		@server=N'localhost\tabular', 
+		@server=N'localhost', 
 		@database_name=N'master', 
-		@flags=0
+		@flags=8
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [Call Next Job - Backup Cube]    Script Date: 8/21/2020 8:45:04 PM ******/
-EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Call Next Job - Backup Cube', 
-		@step_id=8, 
+/****** Object:  Step [Call Next Job - Backup Tabular Model]    Script Date: 8/28/2020 10:14:04 PM ******/
+EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Call Next Job - Backup Tabular Model', 
+		@step_id=9, 
 		@cmdexec_success_code=0, 
 		@on_success_action=1, 
 		@on_success_step_id=0, 
@@ -338,4 +364,5 @@ QuitWithRollback:
     IF (@@TRANCOUNT > 0) ROLLBACK TRANSACTION
 EndSave:
 GO
+
 
