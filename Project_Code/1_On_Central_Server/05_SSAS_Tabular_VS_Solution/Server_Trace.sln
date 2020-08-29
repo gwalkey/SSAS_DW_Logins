@@ -20,12 +20,4 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {91E748D2-75B8-4F50-8328-CD8D5B2917C6}
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://bytehd.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Server_Trace.smproj
-		SccLocalPath1 = .
-	EndGlobalSection
 EndGlobal
