@@ -41,9 +41,6 @@ GO
 
 
 
-create unique nonclustered index [IDX_DimDate] on [Dim_Date] (DimDate)
-GO
-
 -- Insert The UNKNOWN Member Row
 SET IDENTITY_INSERT [dbo].[Dim_Date] ON
 insert into [dbo].[Dim_Date] (
@@ -187,5 +184,16 @@ UPDATE dbo.Dim_date
         AND c2.DimDate < c1.DimDate) = 3 
 	AND ID >0
 
+7USE [ServerTrace_DW]
+GO
 
+--- Helps OLAP INSERT Step
+CREATE NONCLUSTERED INDEX [NCIX_Date_Integer] ON [dbo].[Dim_Date]
+(
+	[DateInteger] ASC
+) ON [PRIMARY]
+GO
 
+--- Make Sure Date Column stays Unique
+create unique nonclustered index [IDX_DimDate] on [Dim_Date] (DimDate)
+GO
