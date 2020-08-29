@@ -31,8 +31,8 @@ The Original design used SSAS Multi-Dimensional
 * Project Started in 2014 
 * My First Data Warehouse
 * Tabular still 1.0-ish in 2014
-* Didn’t have enough $$$ Memory on Server for Tabular
-* Didn’t have ENOUGH $$$ for Enterprise Edition
+* Didn’t have enough $$$ for memory for Tabular
+* Didn’t have enough $$$ for Enterprise Edition
 * Learned Data Warehousing using MD and MDX instead of Excel functions (DAX)
 
 <h2> Operational Statistics</h2>
