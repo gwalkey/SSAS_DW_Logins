@@ -41,6 +41,11 @@ Set-StrictMode -Version latest;
 Add-Type -Path 'C:\Program Files\Microsoft SQL Server\150\Shared\Microsoft.SqlServer.XE.Core.dll'
 Add-Type -Path 'C:\Program Files\Microsoft SQL Server\150\Shared\Microsoft.SqlServer.XEvent.Linq.dll'
 
+# Or use SSMS, as its updated more frequently
+#Add-Type -Path 'C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\Microsoft.SqlServer.XE.Core.dll'
+#Add-Type -Path 'C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\Microsoft.SqlServer.XEvent.Linq.dll'
+
+
 $CentralServer='localhost'
 
 # Clear out BulkCopy Load Table
