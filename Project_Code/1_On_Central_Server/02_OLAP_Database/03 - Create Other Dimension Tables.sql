@@ -26,19 +26,6 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-set identity_insert Dim_ServerName on 
-insert into [dbo].[Dim_ServerName]
-(
-ID,
-ServerName
-)
-values
-(
--2,
-'Unknown'
-)
-
-set identity_insert Dim_ServerName off
 
 CREATE UNIQUE NONCLUSTERED INDEX [NCIX_ServerName_No_Dupes] ON [dbo].[Dim_ServerName]
 (
@@ -69,19 +56,6 @@ CREATE TABLE [dbo].[Dim_DatabaseName](
 ) ON [PRIMARY]
 
 GO
-
-set identity_insert Dim_DatabaseName on
-insert into [dbo].[Dim_DatabaseName]
-(
-ID,
-DatabaseName
-)
-values
-(
--2,
-'Unknown'
-)
-set identity_insert Dim_DatabaseName off
 
 SET ANSI_PADDING OFF
 GO
@@ -114,20 +88,6 @@ CREATE TABLE [dbo].[Dim_Hostname](
 ) ON [PRIMARY]
 
 GO
-
-set identity_insert Dim_HostName on
-insert into [dbo].[Dim_Hostname]
-(
-ID,
-HostName
-)
-values
-(
--2,
-'Unknown'
-)
-set identity_insert Dim_HostName off
-
 
 SET ANSI_PADDING OFF
 GO
@@ -165,19 +125,6 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-set identity_insert Dim_ApplicationName on
-insert into [dbo].[Dim_ApplicationName]
-(
-ID,
-ApplicationName
-)
-values
-(
--2,
-'Unknown'
-)
-set identity_insert Dim_ApplicationName off
-
 
 CREATE UNIQUE NONCLUSTERED INDEX [NCIX_ApplicationName_No_Dupes] ON [dbo].[Dim_ApplicationName]
 (
@@ -209,20 +156,6 @@ CREATE TABLE [dbo].[Dim_SessionLoginName](
 ) ON [PRIMARY]
 
 GO
-
-set identity_insert Dim_SessionLoginName on
-insert into [dbo].[Dim_SessionLoginName]
-(
-ID,
-SessionLoginName
-)
-values
-(
--2,
-'Unknown'
-)
-set identity_insert Dim_SessionLoginName off
-
 
 
 SET ANSI_PADDING OFF
