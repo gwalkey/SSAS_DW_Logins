@@ -41,66 +41,19 @@ GO
 
 
 
--- Insert The UNKNOWN Member Row
-SET IDENTITY_INSERT [dbo].[Dim_Date] ON
-insert into [dbo].[Dim_Date] (
-	ID,
-	[DimDate],
-	[DateInteger],
-	[DayofWeek],
-	[DayofWeekName],
-	[DayofMonth],
-	[DayofYear],
-	[Month],
-	[MonthName],
-	[WeekofYear],
-	[Month Year],
-	[Year],
-	[Quarter],
-	[IsHoliday],
-	[HolidayDescription],
-	[IsWeekDay],
-	[LastDayofWeek],
-	[LastDayofMonth] ,
-	[UTCOffset],
-	[QuarterName]
-)
-values (
--2,
-'01-01-1900',
-19000101,
-0,
-'Unknown',
-0,
-0,
-0,
-'Unknown',
-0,
-'Unknown',
-0,
-0,
-0,
-'Unknown',
-0,
-0,
-0,
-0,
-'Unknown'
-)
-SET IDENTITY_INSERT [dbo].[Dim_Date] OFF
-
---- Create Temp Numbers Table
-set nocount on
-
-CREATE TABLE dbo.Numbers 
-( 
-    Number INT IDENTITY(1,1) PRIMARY KEY CLUSTERED 
-) 
- 
-WHILE COALESCE(SCOPE_IDENTITY(), 0) <= 1000000
-BEGIN 
-    INSERT dbo.Numbers DEFAULT VALUES 
-END
+--- Create Numbers Table
+WITH
+    N1 AS (SELECT N1.n FROM (VALUES (1),(1),(1),(1),(1),(1),(1),(1),(1),(1)) AS N1 (n)),
+    N2 AS (SELECT L.n FROM N1 AS L CROSS JOIN N1 AS R),
+    N3 AS (SELECT L.n FROM N2 AS L CROSS JOIN N2 AS R),
+    N4 AS (SELECT L.n FROM N3 AS L CROSS JOIN N2 AS R),
+    N AS (SELECT ROW_NUMBER() OVER (ORDER BY n) AS n FROM N4)
+SELECT
+    -- Destination column type integer NOT NULL
+    ISNULL(CONVERT(integer, N.n), 0) AS n
+INTO dbo.Numbers
+FROM N
+OPTION (MAXDOP 1);
 
 --- Fast Population of DimDate using Numbers table and DATEADD Fctn
 INSERT dbo.Dim_Date(DimDate,DateInteger)
